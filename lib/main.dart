@@ -4,7 +4,8 @@
 import 'package:flutter/material.dart';
 // 2. Importación del archivo que contiene el widget principal (HomeScreen) 
 //    de la aplicación.
-import 'package:multimedia01/home_screen.dart'; // Asegúrate que 'multimedia01' sea el nombre de tu proyecto
+import 'package:multimedia01/screen/ExampleImages/home_screen_images.dart';
+import 'package:multimedia01/screen/menu_screen.dart'; // Asegúrate que 'multimedia01' sea el nombre de tu proyecto
 
 // 3. Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
       ),
       // 'home': Especifica el widget que debe mostrarse primero al iniciar la aplicación.
       // Aquí dirigimos la aplicación a nuestro widget modularizado HomeScreen.
-      home: const HomeScreen(),
+      home: const MenuScreen(),
     );
   }
 }

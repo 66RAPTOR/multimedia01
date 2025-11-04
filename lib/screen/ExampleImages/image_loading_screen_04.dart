@@ -13,7 +13,7 @@ class ImageLoadingScreen04 extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Ejemplo de Imagen SVG de Fondo'),
         backgroundColor: Colors.transparent, // Para que el fondo SVG se vea por detrás.
-        elevation: 0
+        elevation: 0,
       ),
       body: Stack(
         children: <Widget>[
@@ -39,13 +39,7 @@ class ImageLoadingScreen04 extends StatelessWidget {
                     fontSize: 26,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 7.0,
-                        color: Colors.black,
-                        offset: Offset(3.0, 3.0),
-                      ),
-                    ],
+                    shadows: [Shadow(blurRadius: 7.0, color: Colors.black, offset: Offset(3.0, 3.0))],
                   ),
                 ),
                 SizedBox(height: 50),

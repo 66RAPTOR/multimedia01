@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
       ),
       // Define qué widget debe mostrarse primero al iniciar la aplicación.
-      home: const HomeScreen(),
+      home: const HomeScreenImages(),
     );
   }
 }
@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
 
 // 2. Pantalla Principal (HomeScreen): El contenido visible del inicio.
 //    Es un StatelessWidget porque su contenido (el botón y el texto) no necesita cambiar internamente.
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreenImages extends StatelessWidget {
+  const HomeScreenImages({super.key});
 
   @override
   Widget build(BuildContext context) {
