@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // Importación de la pantalla específica a la que navegaremos (ejemplo de imágenes).
 // Nota: Asegúrate que 'multimedia01' sea el nombre de tu proyecto.
 import 'package:multimedia01/screen/ExampleImages/image_loading_screen_01.dart';
+import 'package:multimedia01/screen/ExampleImages/image_loading_screen_02.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -70,6 +71,26 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(
                     // builder: Crea la instancia del widget de la pantalla de destino.
                     builder: (context) => const ImageLoadingScreen01(),
+                  ),
+                );
+              },
+            ),
+
+            const SizedBox(height: 30), // Separador
+            // --- NUEVO: Botón de Imágenes 02 (Color de Fondo) ---
+            ElevatedButton.icon(
+              icon: const Icon(Icons.palette),
+              label: const Text('Imágenes 02: Color Fondo', style: TextStyle(fontSize: 16)),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                //backgroundColor: const Color(0xFFa3d284).withOpacity(0.8), // Color similar al fondo de destino
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    // Navegación a la nueva pantalla
+                    builder: (context) => const ImageLoadingScreen02(),
                   ),
                 );
               },
