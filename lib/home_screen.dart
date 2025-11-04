@@ -1,0 +1,82 @@
+// Importación de la librería fundamental de Flutter para construir interfaces de usuario.
+import 'package:flutter/material.dart';
+// Importación de la pantalla específica a la que navegaremos (ejemplo de imágenes).
+// Nota: Asegúrate que 'multimedia01' sea el nombre de tu proyecto.
+import 'package:multimedia01/screen/ExampleImages/image_loading_screen_01.dart';
+
+// Función principal de Dart: El punto de entrada de la aplicación.
+void main() {
+  // runApp toma el widget raíz (MyApp) y lo infla, mostrando la aplicación.
+  runApp(const MyApp());
+}
+
+// 1. Widget Raíz (MyApp): Define la configuración base de la aplicación.
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // MaterialApp configura la aplicación para usar el diseño de Material Design.
+    return MaterialApp(
+      title: 'App Multimedia Flutter', // Título para el gestor de tareas del sistema.
+      theme: ThemeData(
+        // Define el tema de color principal de la aplicación.
+        primarySwatch: Colors.teal,
+      ),
+      // Define qué widget debe mostrarse primero al iniciar la aplicación.
+      home: const HomeScreen(),
+    );
+  }
+}
+
+// ---------------------------------------------------------------------
+
+// 2. Pantalla Principal (HomeScreen): El contenido visible del inicio.
+//    Es un StatelessWidget porque su contenido (el botón y el texto) no necesita cambiar internamente.
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Scaffold proporciona la estructura visual básica (AppBar, body, etc.).
+    return Scaffold(
+      // AppBar es la barra de navegación superior.
+      appBar: AppBar(title: const Text('Inicio Multimedia')),
+      // body es el área principal de contenido de la pantalla.
+      body: Center(
+        // Center centra su único hijo en la pantalla.
+        child: Column(
+          // Column organiza sus hijos verticalmente.
+          mainAxisAlignment: MainAxisAlignment.center, // Centra los hijos en el eje vertical.
+          children: <Widget>[
+            // Texto informativo.
+            const Text('Pulsa el botón para ver el ejemplo de Imágenes', style: TextStyle(fontSize: 18)),
+            // Espacio vertical para separar elementos.
+            const SizedBox(height: 20),
+            // Botón con ícono para la navegación.
+            ElevatedButton.icon(
+              icon: const Icon(Icons.image), // Ícono de imagen.
+              label: const Text('Ir a Imágenes', style: TextStyle(fontSize: 16)),
+              style: ElevatedButton.styleFrom(
+                // Estilos para el relleno interno del botón.
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              ),
+              // Acción que ocurre cuando se presiona el botón.
+              onPressed: () {
+                // Navigator.push es la función para navegar a una nueva pantalla.
+                // MaterialPageRoute define cómo se animará la transición a la nueva pantalla.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    // builder: Crea la instancia del widget de la pantalla de destino.
+                    builder: (context) => const ImageLoadingScreen01(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
