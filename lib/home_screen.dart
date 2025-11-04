@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:multimedia01/screen/ExampleImages/image_loading_screen_01.dart';
 import 'package:multimedia01/screen/ExampleImages/image_loading_screen_02.dart';
 import 'package:multimedia01/screen/ExampleImages/image_loading_screen_03.dart';
+import 'package:multimedia01/screen/ExampleImages/image_loading_screen_04.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -97,10 +98,8 @@ class HomeScreen extends StatelessWidget {
               },
             ),
 
-
             const SizedBox(height: 30), // Separador
-
-// --- NUEVO: Botón de Imágenes 03 (Fondo) ---
+            // --- NUEVO: Botón de Imágenes 03 (Fondo) ---
             ElevatedButton.icon(
               icon: const Icon(Icons.wallpaper),
               label: const Text('Imágenes 03: Fondo', style: TextStyle(fontSize: 16)),
@@ -109,12 +108,19 @@ class HomeScreen extends StatelessWidget {
                 //backgroundColor: Colors.brown,
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ImageLoadingScreen03(),
-                  ),
-                );
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen03()));
+              },
+            ),
+
+            // ... después del Botón de Imágenes 03 ...
+            const SizedBox(height: 30), // Separador
+            // --- NUEVO: Botón de Imágenes 04 (Fondo SVG) ---
+            ElevatedButton.icon(
+              icon: const Icon(Icons.picture_as_pdf), // Un ícono que sugiera gráficos vectoriales
+              label: const Text('Imágenes 04: Fondo SVG', style: TextStyle(fontSize: 16)),
+              style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), backgroundColor: Colors.purple),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen04()));
               },
             ),
           ],
