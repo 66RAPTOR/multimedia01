@@ -41,89 +41,113 @@ class HomeScreenImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Definimos el factor de ancho (80% de la pantalla)
+    final double screenWidth = MediaQuery.of(context).size.width;
+    const double buttonWidthFactor = 0.8;
+    final double buttonWidth = screenWidth * buttonWidthFactor;
+
     // Scaffold proporciona la estructura visual básica (AppBar, body, etc.).
     return Scaffold(
       // AppBar es la barra de navegación superior.
-      appBar: AppBar(title: const Text('Inicio Multimedia')),
+      appBar: AppBar(title: const Text('Menu : Multimedia IMAGENES')),
       // body es el área principal de contenido de la pantalla.
-      body: Center(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20.0),
+
         // Center centra su único hijo en la pantalla.
-        child: Column(
-          // Column organiza sus hijos verticalmente.
-          mainAxisAlignment: MainAxisAlignment.center, // Centra los hijos en el eje vertical.
-          children: <Widget>[
-            // Texto informativo.
-            const Text('Pulsa el botón para ver el ejemplo de Imágenes', style: TextStyle(fontSize: 18)),
-            // Espacio vertical para separar elementos.
-            const SizedBox(height: 20),
-            // Botón con ícono para la navegación.
-            ElevatedButton.icon(
-              icon: const Icon(Icons.image), // Ícono de imagen.
-              label: const Text('Ir a Imágenes', style: TextStyle(fontSize: 16)),
-              style: ElevatedButton.styleFrom(
-                // Estilos para el relleno interno del botón.
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-              ),
-              // Acción que ocurre cuando se presiona el botón.
-              onPressed: () {
-                // Navigator.push es la función para navegar a una nueva pantalla.
-                // MaterialPageRoute define cómo se animará la transición a la nueva pantalla.
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    // builder: Crea la instancia del widget de la pantalla de destino.
-                    builder: (context) => const ImageLoadingScreen01(),
+        child: Center(
+          child: Column(
+            // Column organiza sus hijos verticalmente.
+            mainAxisAlignment: MainAxisAlignment.center, // Centra los hijos en el eje vertical.
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              // Texto informativo.
+              const Text('Pulsa el botón para ver el ejemplo de Imágenes', style: TextStyle(fontSize: 18)),
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.image), // Ícono de imagen.
+                  label: const Text('Ir a Imágenes', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    // Estilos para el relleno interno del botón.
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   ),
-                );
-              },
-            ),
-
-            const SizedBox(height: 30), // Separador
-            // --- NUEVO: Botón de Imágenes 02 (Color de Fondo) ---
-            ElevatedButton.icon(
-              icon: const Icon(Icons.palette),
-              label: const Text('Imágenes 02: Color Fondo', style: TextStyle(fontSize: 16)),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                //backgroundColor: const Color(0xFFa3d284).withOpacity(0.8), // Color similar al fondo de destino
+                  // Acción que ocurre cuando se presiona el botón.
+                  onPressed: () {
+                    // Navigator.push es la función para navegar a una nueva pantalla.
+                    // MaterialPageRoute define cómo se animará la transición a la nueva pantalla.
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        // builder: Crea la instancia del widget de la pantalla de destino.
+                        builder: (context) => const ImageLoadingScreen01(),
+                      ),
+                    );
+                  },
+                ),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    // Navegación a la nueva pantalla
-                    builder: (context) => const ImageLoadingScreen02(),
+
+              // Botón con ícono para la navegación.
+              const SizedBox(height: 30), // Separador
+              // --- NUEVO: Botón de Imágenes 02 (Color de Fondo) ---
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.palette),
+                  label: const Text('Imágenes 02: Color Fondo', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    //backgroundColor: const Color(0xFFa3d284).withOpacity(0.8), // Color similar al fondo de destino
                   ),
-                );
-              },
-            ),
-
-            const SizedBox(height: 30), // Separador
-            // --- NUEVO: Botón de Imágenes 03 (Fondo) ---
-            ElevatedButton.icon(
-              icon: const Icon(Icons.wallpaper),
-              label: const Text('Imágenes 03: Fondo', style: TextStyle(fontSize: 16)),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                //backgroundColor: Colors.brown,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        // Navegación a la nueva pantalla
+                        builder: (context) => const ImageLoadingScreen02(),
+                      ),
+                    );
+                  },
+                ),
               ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen03()));
-              },
-            ),
 
-            // ... después del Botón de Imágenes 03 ...
-            const SizedBox(height: 30), // Separador
-            // --- NUEVO: Botón de Imágenes 04 (Fondo SVG) ---
-            ElevatedButton.icon(
-              icon: const Icon(Icons.picture_as_pdf), // Un ícono que sugiera gráficos vectoriales
-              label: const Text('Imágenes 04: Fondo SVG', style: TextStyle(fontSize: 16)),
-              style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), backgroundColor: Colors.purple),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen04()));
-              },
-            ),
-          ],
+              const SizedBox(height: 30), // Separador
+              SizedBox(
+                width: buttonWidth,
+                child: // --- NUEVO: Botón de Imágenes 03 (Fondo) ---
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.wallpaper),
+                  label: const Text('Imágenes 03: Fondo', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    //backgroundColor: Colors.brown,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen03()));
+                  },
+                ),
+              ),
+
+              // ... después del Botón de Imágenes 03 ...
+              const SizedBox(height: 30), // Separador
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.picture_as_pdf), // Un ícono que sugiera gráficos vectoriales
+                  label: const Text('Imágenes 04: Fondo SVG', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), backgroundColor: Colors.purple),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen04()));
+                  },
+                ),
+              ),
+
+              // --- NUEVO: Botón de Imágenes 04 (Fondo SVG) ---
+            ],
+          ),
         ),
       ),
     );
