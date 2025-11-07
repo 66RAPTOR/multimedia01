@@ -7,6 +7,8 @@ import 'package:multimedia01/screen/ExampleImages/image_loading_screen_02.dart';
 import 'package:multimedia01/screen/ExampleImages/image_loading_screen_03.dart';
 import 'package:multimedia01/screen/ExampleImages/image_loading_screen_04.dart';
 
+import 'image_loading_screen_05.dart';
+
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
   // runApp toma el widget raíz (MyApp) y lo infla, mostrando la aplicación.
@@ -141,6 +143,28 @@ class HomeScreenImages extends StatelessWidget {
                   style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), backgroundColor: Colors.purple),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen04()));
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 30), // Separador
+              SizedBox(
+                width: buttonWidth, // Usamos el ancho adaptativo
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.gradient), // Ícono que sugiere gradientes
+                  label: const Text('Imágenes 05: Fondo Gradiente', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: const Color(0xFF4CAF50), // Color base del botón para que coincida o contraste.
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImageLoadingScreen05(),
+                      ),
+                    );
                   },
                 ),
               ),
