@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-// 🚀 Pantalla con Gradiente Animado (Keyframe-like)
-// Usamos StatefulWidget porque el estado del gradiente (su posición) cambiará con el tiempo.
+// 🚀 Pantalla con Gradiente Animado (Movimiento Constante)
 class ImageLoadingScreen07 extends StatefulWidget {
   const ImageLoadingScreen07({super.key});
 
@@ -10,27 +9,26 @@ class ImageLoadingScreen07 extends StatefulWidget {
 }
 
 class _ImageLoadingScreen07State extends State<ImageLoadingScreen07> with SingleTickerProviderStateMixin {
-  // <-- Mixin necesario para AnimationController
-
-  late AnimationController _animationController; // Controla la animación
-  late Animation<Alignment> _topAlignmentAnimation; // Anima el punto 'begin'
-  late Animation<Alignment> _bottomAlignmentAnimation; // Anima el punto 'end'
+  // 1. Declaración de Componentes
+  late AnimationController _animationController; // Controla la duración y repetición.
+  late Animation<Alignment> _topAlignmentAnimation; // Anima el punto 'begin'.
+  late Animation<Alignment> _bottomAlignmentAnimation; // Anima el punto 'end'.
 
   @override
   void initState() {
     super.initState();
 
-    // Inicializamos el AnimationController.
-    // duration: Duración de una repetición de la animación.
-    // vsync: 'this' es el SingleTickerProviderStateMixin que le dice a Flutter
-    //        que este widget es el "ticker" para la animación.
+    // 2. Inicialización del Motor (AnimationController)
+    // MODIFICACIÓN CLAVE 1: Duración aumentada a 8 segundos.
+    // Una duración más larga asegura que el movimiento sea percibido como lento y continuo.
     _animationController = AnimationController(
-      duration: const Duration(seconds: 1), // La animación tardará 4 segundos
+      duration: const Duration(seconds: 3), // Antes era 1 segundo, lo que causaba el efecto "nervioso".
       vsync: this,
     );
 
-    // Definimos el Tween para la animación del 'begin' del gradiente.
-    // Irá de la esquina superior izquierda a la inferior izquierda.
+    // 3. Definición del Camino (TweenSequence)
+    // Esta secuencia define la ruta del gradiente (esquina a esquina).
+    // El 'weight: 1' en cada segmento asegura que cada paso tome exactamente el mismo tiempo.
     _topAlignmentAnimation = TweenSequence<Alignment>([
       TweenSequenceItem<Alignment>(
         tween: Tween<Alignment>(begin: Alignment.topLeft, end: Alignment.topRight),
@@ -50,8 +48,7 @@ class _ImageLoadingScreen07State extends State<ImageLoadingScreen07> with Single
       ),
     ]).animate(_animationController);
 
-    // Definimos el Tween para la animación del 'end' del gradiente.
-    // Irá de la esquina inferior derecha a la superior derecha.
+    // Definimos el Tween para el punto 'end' (simétrico al 'begin').
     _bottomAlignmentAnimation = TweenSequence<Alignment>([
       TweenSequenceItem<Alignment>(
         tween: Tween<Alignment>(begin: Alignment.bottomRight, end: Alignment.bottomLeft),
@@ -71,18 +68,20 @@ class _ImageLoadingScreen07State extends State<ImageLoadingScreen07> with Single
       ),
     ]).animate(_animationController);
 
-    // Escucha los cambios de la animación y redibuja la pantalla con setState.
+    // 4. Mecanismo de Redibujado
+    // Este addListener obliga a Flutter a ejecutar el build() en cada "frame" de la animación.
     _animationController.addListener(() {
       setState(() {});
     });
 
-    // Inicia la animación y la repite indefinidamente.
+    // 5. Arranque y Repetición
+    // .repeat() garantiza el giro infinito sin pausas.
     _animationController.repeat();
   }
 
   @override
   void dispose() {
-    // Es crucial liberar los recursos del AnimationController cuando el widget ya no está en uso.
+    // Liberar recursos para evitar fugas de memoria.
     _animationController.dispose();
     super.dispose();
   }
@@ -91,14 +90,14 @@ class _ImageLoadingScreen07State extends State<ImageLoadingScreen07> with Single
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(title: const Text('Gradiente Animado (Keyframes)'), backgroundColor: Colors.transparent, elevation: 0),
+      appBar: AppBar(title: const Text('Gradiente Animado (Movimiento Constante)'), backgroundColor: Colors.transparent, elevation: 0),
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        // 💡 BoxDecoration usando los valores animdos para el gradiente.
+        // 💡 Aplicación del Gradiente Animado en el build()
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            // Aquí usamos los valores de Alignment que provienen de las animaciones.
+            // El 'begin' y 'end' ahora toman el valor actual de la animación (movimiento continuo).
             begin: _topAlignmentAnimation.value,
             end: _bottomAlignmentAnimation.value,
             colors: const [
@@ -106,13 +105,13 @@ class _ImageLoadingScreen07State extends State<ImageLoadingScreen07> with Single
               Color(0xFFE0C3FC), // Un morado claro
               Color(0xFFE0BBE4), // Un tono rosado
             ],
-            stops: const [0.1, 0.5, 1.0],
           ),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+
+            /* children: <Widget>[
               const Text(
                 '¡Fondo con Gradiente Animado!',
                 textAlign: TextAlign.center,
@@ -123,14 +122,8 @@ class _ImageLoadingScreen07State extends State<ImageLoadingScreen07> with Single
                   shadows: [Shadow(blurRadius: 10.0, color: Colors.black, offset: Offset(4.0, 4.0))],
                 ),
               ),
-              const SizedBox(height: 50),
-              const Icon(
-                Icons.star,
-                size: 80,
-                color: Colors.amberAccent,
-                shadows: [Shadow(blurRadius: 5.0, color: Colors.black, offset: Offset(2.0, 2.0))],
-              ),
             ],
+*/
           ),
         ),
       ),
