@@ -9,6 +9,7 @@ import 'package:multimedia01/screen/ExampleImages/image_loading_screen_04.dart';
 
 import 'image_loading_screen_05.dart';
 import 'image_loading_screen_06.dart';
+import 'image_loading_screen_07.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -191,6 +192,35 @@ class HomeScreenImages extends StatelessWidget {
                   },
                 ),
               ),
+
+
+              const SizedBox(height: 15),
+
+// 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen07)
+
+// --- NUEVO: Botón de Imágenes 07 (Gradiente Animado) ---
+              SizedBox(
+                width: buttonWidth, // Usamos el ancho adaptativo
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.motion_photos_on), // Icono de animación
+                  label: const Text('Imágenes 07: Gradiente Animado', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: const Color(0xFF8EC5FC), // Color base del botón.
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImageLoadingScreen07(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+
             ],
           ),
         ),
