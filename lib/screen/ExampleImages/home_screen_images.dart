@@ -11,6 +11,7 @@ import 'image_loading_screen_05.dart';
 import 'image_loading_screen_06.dart';
 import 'image_loading_screen_07.dart';
 import 'image_loading_screen_08.dart';
+import 'image_loading_screen_09.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -222,6 +223,27 @@ class HomeScreenImages extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen08()));
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              // 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen09)
+
+              // --- NUEVO: Botón de Imágenes 09 (Gradiente de Barrido 360°) ---
+              SizedBox(
+                width: buttonWidth, // Usamos el ancho adaptativo
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.cached), // Ícono que sugiere rotación y caché
+                  label: const Text('Imágenes 09: Gradiente de Barrido', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: const Color(0xFF3A1C71), // Morado oscuro
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen09()));
                   },
                 ),
               ),
