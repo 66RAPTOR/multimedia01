@@ -12,6 +12,7 @@ import 'image_loading_screen_06.dart';
 import 'image_loading_screen_07.dart';
 import 'image_loading_screen_08.dart';
 import 'image_loading_screen_09.dart';
+import 'image_loading_screen_10.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -72,6 +73,14 @@ class HomeScreenImages extends StatelessWidget {
               // Espacio vertical para separar elementos.
               const SizedBox(height: 20),
 
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen01)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 02 (Color de Fondo) ---
               SizedBox(
                 width: buttonWidth,
                 child: ElevatedButton.icon(
@@ -96,8 +105,14 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-              // Botón con ícono para la navegación.
-              const SizedBox(height: 30), // Separador
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen02)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
               // --- NUEVO: Botón de Imágenes 02 (Color de Fondo) ---
               SizedBox(
                 width: buttonWidth,
@@ -247,6 +262,35 @@ class HomeScreenImages extends StatelessWidget {
                   },
                 ),
               ),
+
+
+              const SizedBox(height: 15),
+
+// 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen10)
+
+// --- NUEVO: Botón de Imágenes 10 (Giro Constante) ---
+              SizedBox(
+                width: buttonWidth, // Usamos el ancho adaptativo
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.star_half),
+                  label: const Text('Imágenes 10: Giro Gradiente CONSTANTE', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImageLoadingScreen10(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+
             ],
           ),
         ),
