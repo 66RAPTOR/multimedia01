@@ -14,6 +14,7 @@ import 'image_loading_screen_08.dart';
 import 'image_loading_screen_09.dart';
 import 'image_loading_screen_10.dart';
 import 'image_loading_screen_11.dart';
+import 'image_loading_screen_12.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -330,6 +331,35 @@ class HomeScreenImages extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => const ImageLoadingScreen11(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen12)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+              // --- NUEVO: Botón de Imágenes 12 (Hero Animation) ---
+              SizedBox(
+                width: buttonWidth, // Usamos el ancho adaptativo
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.flight_takeoff), // Icono que sugiere un vuelo (transición)
+                  label: const Text('Imágenes 12: Hero Animation', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: Colors.indigo,
+                    foregroundColor: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImageLoadingScreen12(),
                       ),
                     );
                   },
