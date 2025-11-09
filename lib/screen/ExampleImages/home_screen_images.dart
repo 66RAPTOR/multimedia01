@@ -13,6 +13,7 @@ import 'image_loading_screen_07.dart';
 import 'image_loading_screen_08.dart';
 import 'image_loading_screen_09.dart';
 import 'image_loading_screen_10.dart';
+import 'image_loading_screen_11.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -304,6 +305,33 @@ class HomeScreenImages extends StatelessWidget {
                   style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen10()));
+                  },
+                ),
+              ),
+
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen11)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+              // --- NUEVO: Botón de Imágenes 11 (Avatares y Bordes) ---
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.person),
+                  label: const Text('Imágenes 11: Avatares Circulares', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ImageLoadingScreen11(),
+                      ),
+                    );
                   },
                 ),
               ),
