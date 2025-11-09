@@ -11,10 +11,10 @@ class ImageLoadingScreen10 extends StatefulWidget {
 }
 
 class _ImageLoadingScreen10State extends State<ImageLoadingScreen10>
-// El Mixin 'SingleTickerProviderStateMixin' es esencial. Proporciona el "reloj" (ticker)
-// que el AnimationController necesita para medir el tiempo y avanzar en la animación.
-    with SingleTickerProviderStateMixin {
-
+        // El Mixin 'SingleTickerProviderStateMixin' es esencial. Proporciona el "reloj" (ticker)
+        // que el AnimationController necesita para medir el tiempo y avanzar en la animación.
+        with
+        SingleTickerProviderStateMixin {
   // 1. EL MOTOR: AnimationController
   // Controla la duración, velocidad y repetición de la animación.
   late AnimationController _controller;

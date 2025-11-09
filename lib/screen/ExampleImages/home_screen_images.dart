@@ -50,7 +50,7 @@ class HomeScreenImages extends StatelessWidget {
   Widget build(BuildContext context) {
     // Definimos el factor de ancho (80% de la pantalla)
     final double screenWidth = MediaQuery.of(context).size.width;
-    const double buttonWidthFactor = 0.8;
+    const double buttonWidthFactor = 0.9;
     final double buttonWidth = screenWidth * buttonWidthFactor;
 
     // Scaffold proporciona la estructura visual básica (AppBar, body, etc.).
@@ -105,7 +105,6 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-
               //--------------------------------------------------------------------------------
               // Ir al widget de imágenes (ImageLoadingScreen02)
               //--------------------------------------------------------------------------------
@@ -135,11 +134,17 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 30), // Separador
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen03)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 03 (Fondo) ---
               SizedBox(
                 width: buttonWidth,
-                child: // --- NUEVO: Botón de Imágenes 03 (Fondo) ---
-                ElevatedButton.icon(
+                child: ElevatedButton.icon(
                   icon: const Icon(Icons.wallpaper),
                   label: const Text('Imágenes 03: Fondo', style: TextStyle(fontSize: 16)),
                   style: ElevatedButton.styleFrom(
@@ -152,21 +157,37 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-              // ... después del Botón de Imágenes 03 ...
-              const SizedBox(height: 30), // Separador
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen04)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 04 ---
               SizedBox(
                 width: buttonWidth,
                 child: ElevatedButton.icon(
                   icon: const Icon(Icons.picture_as_pdf), // Un ícono que sugiera gráficos vectoriales
                   label: const Text('Imágenes 04: Fondo SVG', style: TextStyle(fontSize: 16)),
-                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), backgroundColor: Colors.purple),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                    //backgroundColor: Colors.purple
+                  ),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen04()));
                   },
                 ),
               ),
 
-              const SizedBox(height: 30), // Separador
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen05)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 05 (Fondo Gradiente) ---
               SizedBox(
                 width: buttonWidth, // Usamos el ancho adaptativo
                 child: ElevatedButton.icon(
@@ -174,8 +195,8 @@ class HomeScreenImages extends StatelessWidget {
                   label: const Text('Imágenes 05: Fondo Gradiente', style: TextStyle(fontSize: 16)),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: const Color(0xFF4CAF50), // Color base del botón para que coincida o contraste.
-                    foregroundColor: Colors.white,
+                    //backgroundColor: const Color(0xFF4CAF50), // Color base del botón para que coincida o contraste.
+                    //foregroundColor: Colors.white,
                   ),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen05()));
@@ -183,7 +204,14 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 30), // Separador
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen06)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 06 (Gradiente con Stops) ---
               SizedBox(
                 width: buttonWidth, // Usamos el ancho adaptativo
                 child: ElevatedButton.icon(
@@ -191,8 +219,8 @@ class HomeScreenImages extends StatelessWidget {
                   label: const Text('Imágenes 06: Gradiente con Stops', style: TextStyle(fontSize: 16)),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: const Color(0xFF1E88E5), // Color base del botón.
-                    foregroundColor: Colors.white,
+                    //backgroundColor: const Color(0xFF1E88E5), // Color base del botón.
+                    //foregroundColor: Colors.white,
                   ),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen06()));
@@ -200,9 +228,12 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 15),
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen07)
+              //--------------------------------------------------------------------------------
 
-              // 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen07)
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
 
               // --- NUEVO: Botón de Imágenes 07 (Gradiente Animado) ---
               SizedBox(
@@ -210,20 +241,19 @@ class HomeScreenImages extends StatelessWidget {
                 child: ElevatedButton.icon(
                   icon: const Icon(Icons.motion_photos_on), // Icono de animación
                   label: const Text('Imágenes 07: Gradiente Animado', style: TextStyle(fontSize: 16)),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: const Color(0xFF8EC5FC), // Color base del botón.
-                    foregroundColor: Colors.white,
-                  ),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen07()));
                   },
                 ),
               ),
 
-              const SizedBox(height: 15),
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen08)
+              //--------------------------------------------------------------------------------
 
-              // 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen08)
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
 
               // --- NUEVO: Botón de Imágenes 08 (Giro Infinito) ---
               SizedBox(
@@ -231,20 +261,19 @@ class HomeScreenImages extends StatelessWidget {
                 child: ElevatedButton.icon(
                   icon: const Icon(Icons.refresh),
                   label: const Text('Imágenes 08: Giro Infinito', style: TextStyle(fontSize: 16)),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: Colors.orange, // Un color nuevo para diferenciar
-                    foregroundColor: Colors.white,
-                  ),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen08()));
                   },
                 ),
               ),
 
-              const SizedBox(height: 15),
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen09)
+              //--------------------------------------------------------------------------------
 
-              // 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen09)
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
 
               // --- NUEVO: Botón de Imágenes 09 (Gradiente de Barrido 360°) ---
               SizedBox(
@@ -252,45 +281,32 @@ class HomeScreenImages extends StatelessWidget {
                 child: ElevatedButton.icon(
                   icon: const Icon(Icons.cached), // Ícono que sugiere rotación y caché
                   label: const Text('Imágenes 09: Gradiente de Barrido', style: TextStyle(fontSize: 16)),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: const Color(0xFF3A1C71), // Morado oscuro
-                    foregroundColor: Colors.white,
-                  ),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen09()));
                   },
                 ),
               ),
 
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen10)
+              //--------------------------------------------------------------------------------
 
-              const SizedBox(height: 15),
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
 
-// 💡 Importar la nueva pantalla (Asegúrate de importar ImageLoadingScreen10)
-
-// --- NUEVO: Botón de Imágenes 10 (Giro Constante) ---
+              // --- NUEVO: Botón de Imágenes 10 (Giro Constante) ---
               SizedBox(
                 width: buttonWidth, // Usamos el ancho adaptativo
                 child: ElevatedButton.icon(
                   icon: const Icon(Icons.star_half),
                   label: const Text('Imágenes 10: Giro Gradiente CONSTANTE', style: TextStyle(fontSize: 16)),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: Colors.deepPurple,
-                    foregroundColor: Colors.white,
-                  ),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ImageLoadingScreen10(),
-                      ),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen10()));
                   },
                 ),
               ),
-
-
             ],
           ),
         ),
