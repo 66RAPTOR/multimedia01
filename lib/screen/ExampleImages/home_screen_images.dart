@@ -16,6 +16,7 @@ import 'image_loading_screen_10.dart';
 import 'image_loading_screen_11.dart';
 import 'image_loading_screen_12.dart';
 import 'image_loading_screen_13.dart';
+import 'image_loading_screen_14.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -311,7 +312,6 @@ class HomeScreenImages extends StatelessWidget {
                 ),
               ),
 
-
               //--------------------------------------------------------------------------------
               // Ir al widget de imágenes (ImageLoadingScreen11)
               //--------------------------------------------------------------------------------
@@ -324,20 +324,12 @@ class HomeScreenImages extends StatelessWidget {
                 child: ElevatedButton.icon(
                   icon: const Icon(Icons.person),
                   label: const Text('Imágenes 11: Avatares Circulares', style: TextStyle(fontSize: 16)),
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                  ),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ImageLoadingScreen11(),
-                      ),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen11()));
                   },
                 ),
               ),
-
 
               //--------------------------------------------------------------------------------
               // Ir al widget de imágenes (ImageLoadingScreen12)
@@ -352,21 +344,15 @@ class HomeScreenImages extends StatelessWidget {
                   icon: const Icon(Icons.flight_takeoff), // Icono que sugiere un vuelo (transición)
                   label: const Text('Imágenes 12: Hero Animation', style: TextStyle(fontSize: 16)),
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 15)
+                    padding: const EdgeInsets.symmetric(vertical: 15),
                     //backgroundColor: Colors.indigo,
-                   // foregroundColor: Colors.white,
+                    // foregroundColor: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ImageLoadingScreen12(),
-                      ),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen12()));
                   },
                 ),
               ),
-
 
               //--------------------------------------------------------------------------------
               // Ir al widget de imágenes (ImageLoadingScreen13)
@@ -383,16 +369,31 @@ class HomeScreenImages extends StatelessWidget {
                   label: const Text('Imágenes 13: Filtros y Desenfoque', style: TextStyle(fontSize: 16)),
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    backgroundColor: Colors.blueGrey,
-                    foregroundColor: Colors.white,
+                    //backgroundColor: Colors.blueGrey,
+                    //foregroundColor: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ImageLoadingScreen13(),
-                      ),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen13()));
+                  },
+                ),
+              ),
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen13)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 14 (Gradiente de Opacidad) ---
+              SizedBox(
+                width: buttonWidth, // Usamos el ancho adaptativo
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.layers), // Icono que sugiere apilamiento de capas.
+                  label: const Text('Imágenes 14: Gradiente sobre Imagen', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen14()));
                   },
                 ),
               ),
