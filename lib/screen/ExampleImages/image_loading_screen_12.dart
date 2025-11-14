@@ -50,6 +50,7 @@ class ImageLoadingScreen12 extends StatelessWidget {
                 ),
               ),
             ),
+
           ],
         ),
       ),
