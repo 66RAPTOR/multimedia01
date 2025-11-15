@@ -19,6 +19,7 @@ import 'image_loading_screen_13.dart';
 import 'image_loading_screen_14.dart';
 import 'image_loading_screen_15.dart';
 import 'image_loading_screen_16.dart';
+import 'image_loading_screen_17.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -436,6 +437,26 @@ class HomeScreenImages extends StatelessWidget {
                   style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen16()));
+                  },
+                ),
+              ),
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen17)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 17 (Shimmer a Contenido Real) ---
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.timeline), // Ícono que sugiere un flujo o transición
+                  label: const Text('Imágenes 17: Shimmer a Contenido Real', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen17()));
                   },
                 ),
               ),
