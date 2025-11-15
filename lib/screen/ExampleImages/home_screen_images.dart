@@ -17,6 +17,7 @@ import 'image_loading_screen_11.dart';
 import 'image_loading_screen_12.dart';
 import 'image_loading_screen_13.dart';
 import 'image_loading_screen_14.dart';
+import 'image_loading_screen_15.dart';
 
 // Función principal de Dart: El punto de entrada de la aplicación.
 void main() {
@@ -394,6 +395,26 @@ class HomeScreenImages extends StatelessWidget {
                   style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen14()));
+                  },
+                ),
+              ),
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de imágenes (ImageLoadingScreen15)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- NUEVO: Botón de Imágenes 15 (Liquid Glass Cards) ---
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.blur_on), // Ícono que sugiere desenfoque/vidrio
+                  label: const Text('Imágenes 15: Liquid Glass Cards', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const ImageLoadingScreen15()));
                   },
                 ),
               ),
