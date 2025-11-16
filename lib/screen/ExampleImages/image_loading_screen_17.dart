@@ -62,7 +62,7 @@ class _ImageLoadingScreen17State extends State<ImageLoadingScreen17> {
   void _simulateLoading() {
     // 🔑 6. SIMULACIÓN DE LATENCIA (API Call): Usamos Timer para introducir un retraso artificial.
     // Esto simula el tiempo que la aplicación esperaría por una respuesta de la base de datos o API.
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 2), () {
       // 7. SEGURIDAD: Comprobamos si el widget sigue visible antes de cambiar el estado.
       if (mounted) {
         // 🔑 8. CAMBIO DE ESTADO: Actualizamos la variable y obligamos a Flutter a redibujar (re-ejecutar build).
@@ -156,6 +156,7 @@ class _ImageLoadingScreen17State extends State<ImageLoadingScreen17> {
 
   // 12.?MÉTODO_BUILD: Aquí se decide qué mostrar al usuario.
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(_isLoading ? 'Cargando Noticias con Shimmer...' : 'Noticias Actuales')),
@@ -163,25 +164,39 @@ class _ImageLoadingScreen17State extends State<ImageLoadingScreen17> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: <Widget>[
-            // 🔑 13. LÓGICA TERNARIA (El motor del cambio):
-            // Si _isLoading es TRUE, ejecuta la primera parte (Shimmer).
-            // Si _isLoading es FALSE, ejecuta la segunda parte (Listado Real).
-            _isLoading
-                ? Shimmer.fromColors(
-                    baseColor: Colors.grey.shade300,
-                    highlightColor: Colors.grey.shade100,
-                    child: Column(
-                      children: [
-                        // Genera EXACTAMENTE 10 placeholders, uno por cada noticia esperada.
-                        ...List.generate(dummyNews.length, (index) => _buildShimmerCard()),
-                      ],
+            // 🔑 WIDGET CLAVE: AnimatedSwitcher
+            // ----------------------------------------------------
+            // 1. duration: Define cuánto tiempo durará la transición (ej: 500ms).
+            // 2. child: El widget que está cambiando (nuestra lógica ternaria).
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 800), // Duración de la transición.
+              // Transición por defecto: El nuevo widget se desvanece mientras el viejo se va.
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                // Opción por defecto que aplica Fade (desvanecimiento)
+                return FadeTransition(opacity: animation, child: child);
+              },
+              child: _isLoading
+                  // ----------------------------------------------------
+                  // RAMA 1: MOSTRAR SHIMMER
+                  // ----------------------------------------------------
+                  ? Shimmer.fromColors(
+                      // 🔑 CLAVE: La Key debe ser única para el AnimatedSwitcher.
+                      // Usamos un valor constante (key: ValueKey(true)) para cuando está cargando.
+                      key: const ValueKey<bool>(true),
+                      baseColor: Colors.grey.shade300,
+                      highlightColor: Colors.grey.shade100,
+                      child: Column(children: [...List.generate(dummyNews.length, (index) => _buildShimmerCard())]),
+                    )
+                  // ----------------------------------------------------
+                  // RAMA 2: MOSTRAR CONTENIDO REAL
+                  // ----------------------------------------------------
+                  : Column(
+                      // 🔑 CLAVE: La Key debe ser diferente a la del Shimmer.
+                      // Usamos un valor constante (key: ValueKey(false)) para cuando ha cargado.
+                      key: const ValueKey<bool>(false),
+                      children: dummyNews.map((item) => _buildRealNewsCard(item)).toList(),
                     ),
-                  )
-                // CONTENIDO REAL (Se muestra después del setState)
-                : Column(
-                    // Mapea la lista de 10 noticias reales a widgets de Card.
-                    children: dummyNews.map((item) => _buildRealNewsCard(item)).toList(),
-                  ),
+            ),
           ],
         ),
       ),
