@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multimedia01/screen/ExampleVideos/video_player_screen_03.dart';
 // Importamos la primera pantalla de video que acabamos de crear
 import 'video_player_screen_01.dart';
 import 'video_player_screen_02.dart';
@@ -63,6 +64,26 @@ class HomeScreenVideos extends StatelessWidget {
                   style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoPlayerScreen02()));
+                  },
+                ),
+              ),
+
+              //--------------------------------------------------------------------------------
+              // Ir al widget de Videos (VideoPlayerScreen03)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
+              const SizedBox(height: 20),
+
+              // --- Botón de Videos 02 (Controles Avanzados) ---
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.control_point),
+                  label: const Text('Videos 02: Controles Avanzados y Barra', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoPlayerScreen03()));
                   },
                 ),
               ),
