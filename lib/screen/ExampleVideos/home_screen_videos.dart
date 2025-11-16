@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // Importamos la primera pantalla de video que acabamos de crear
 import 'video_player_screen_01.dart';
+import 'video_player_screen_02.dart';
 
 class HomeScreenVideos extends StatelessWidget {
   const HomeScreenVideos({super.key});
@@ -46,8 +47,25 @@ class HomeScreenVideos extends StatelessWidget {
                 ),
               ),
 
-              // 💡 Los próximos botones de video se agregarán aquí.
+              //--------------------------------------------------------------------------------
+              // Ir al widget de Videos (VideoPlayerScreen02)
+              //--------------------------------------------------------------------------------
+
+              // Espacio vertical para separar elementos.
               const SizedBox(height: 20),
+
+              // --- Botón de Videos 02 (Controles Avanzados) ---
+              SizedBox(
+                width: buttonWidth,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.control_point),
+                  label: const Text('Videos 02: Controles Avanzados y Barra', style: TextStyle(fontSize: 16)),
+                  style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 15)),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoPlayerScreen02()));
+                  },
+                ),
+              ),
             ],
           ),
         ),
