@@ -43,3 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Archivos de video grandes o binarios que no deben subir al repositorio Git.
+# Ignoramos todos los archivos dentro de la carpeta assets/videos.
+assets/videos/
